@@ -5,7 +5,7 @@ Resources:
   DevOpsS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: evidencia-devops-leomeza-2026-01
+      BucketName: evidencia-devops-leomeza-2026-02
 
   DevOpsSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -20,7 +20,7 @@ Resources:
   DevOpsEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       ImageId: ami-05f991c49d264708f
       SecurityGroupIds:
         - !Ref DevOpsSecurityGroup
