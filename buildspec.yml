@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Instalando dependencias del entorno de build...
+      - docker --version
+  pre_build:
+    commands:
+      - echo Validando estructura del proyecto...
+      - test -f app/app.py
+      - test -f docker/Dockerfile
+      - test -f docker/docker-compose.yml
+      - echo Archivos validados correctamente.
+  build:
+    commands:
+      - echo Construyendo contenedor Docker...
+      - docker build -t devops-flask-app -f docker/Dockerfile .
+  post_build:
+    commands:
+      - echo Build finalizado correctamente.
+
+artifacts:
+  files:
+    - '**/*'
